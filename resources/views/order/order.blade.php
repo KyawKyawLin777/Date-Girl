@@ -609,7 +609,7 @@
             <div id="modal" class="modal">
                 <div class="modal-content">
                     <span class="close" id="closeModal">&times;</span>
-                    <h2>Modal Header</h2>
+                    <h2>Order Form</h2>
                     <form id="orderForm" action="{{ route('order#orderCreate') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
