@@ -144,11 +144,11 @@
                                     value="{{ request('search') }}">
                             </div>
                             <div class="col-6 col-md-4 mt-2">
-                                <input class="form-control" type="date" name="start_date" placeholder="Start Date"
-                                    value="{{ request('start_date') }}">
+                                <input class="form-control text-dark" type="date" name="start_date"
+                                    placeholder="Start Date" value="{{ request('start_date') }}">
                             </div>
                             <div class="col-6 col-md-4 mt-2">
-                                <input class="form-control" type="date" name="end_date" placeholder="End Date"
+                                <input class="form-control text-dark" type="date" name="end_date" placeholder="End Date"
                                     value="{{ request('end_date') }}">
                             </div>
                         </div>

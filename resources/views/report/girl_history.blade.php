@@ -136,11 +136,11 @@
                 <form action="{{ url('girl_history_search', $girl->id) }}" method="GET">
                     <div class="row">
                         <div class="col-6 col-md-4 mt-2">
-                            <input class="form-control" type="date" name="start_date" placeholder="Start Date"
+                            <input class="form-control text-dark" type="date" name="start_date" placeholder="Start Date"
                                 value="{{ request('start_date') }}">
                         </div>
                         <div class="col-6 col-md-4 mt-2">
-                            <input class="form-control" type="date" name="end_date" placeholder="End Date"
+                            <input class="form-control text-dark" type="date" name="end_date" placeholder="End Date"
                                 value="{{ request('end_date') }}">
                         </div>
                     </div>
