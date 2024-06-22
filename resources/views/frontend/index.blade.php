@@ -888,8 +888,6 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-
-
             </div>
 
             <div class="collapse navbar-collapse">

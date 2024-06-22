@@ -656,7 +656,7 @@
 
         .photos video {
             min-height: 300px !important;
-
+            width: 400px !important;
         }
 
     }
