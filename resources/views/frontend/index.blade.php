@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('frontend/assets/img/apple-icon.png') }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/favicon/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/avatars/pink_logo.png') }}">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Date Girl</title>
@@ -813,7 +813,8 @@
         text-transform: uppercase;
         font-weight: 700;
         background-size: cover;
-        background-image: url(https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-2430.jpg);
+        background-image:
+            url(https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-2430.jpg);
         -webkit-background-clip: text;
         animation: background-text-animation 15s linear infinite;
     }
@@ -866,13 +867,250 @@
     }
 
 
+    .dropdown-toggle {
+        color: black;
+        /* Change text color to black */
+        font-size: 17px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        /* Add a subtle black shadow */
+    }
+
+    .dropdown-menu {
+        background-color: white;
+        /* White background */
+        border: 1px solid #ccc;
+        /* Light gray border */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        /* 3D shadow effect */
+    }
+
+    .dropdown-menu li a {
+        color: black;
+        /* Change text color to black */
+        text-decoration: none;
+        /* Remove underline */
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: #f2f2f2;
+        /* Light gray background on hover */
+    }
 
     /* CSS to show the off-message on hover */
     /* .girl-list:hover .off-message {
-        display: block;
+    display: block;
     } */
 </style>
 
+<style>
+    .spinner {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAAA7CAYAAABlllgYAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAAFqklEQVR42u2dTWwVVRTHf+dVDbYETAwirTHIV7F+ELqwxYAb0ehOFwaihkg0xkAVXbgwYe/GRhNCXLgQvxKrC5dqUjeUSGsIiso3tcSIQHAhBLBi2uPi3jbPx3uv0zozZ+bO/JK3ue9l3v/c+b+Z8+69c49Q0hRVbQXWAKuBu4AlwEKgzb8ArvjXReAsMAYcAw6JyFXrGLKKWAvIIqq6GNgIbAA6gZY5HmoCOA4MAYMict46tixRms+jqgL0AJuAtUAl5q+YBL4HBoAREVHrmK0pzQeo6npgK7Aypa88CewRkSHr2C0ptPlUtQPYAfQaSRgB3hGRM9Z9YUFhzaeqTwB9wE3GUq4Bu0XkC+s+SZvCmU9V24A3gIestdSwF3hTRK5YC0mLQplPVW8F3gKWW2tpwCjwuoj8YS0kDQpjPp/fvQ3cbq1lBs4BrxUhDyyE+VR1EfAucJu1lohcAF4SkQvWQpIk7rGszKGqC3C32rwYD2AR0O+1B0vQ5vMDxztx02J5Yymw08cQJEGbD3gauzG8OOgFnrEWkRTBmk9VlwMvWOuIged9LMEhqloBuoEVQN5yjFER+aa20d+qdgP3WguMicPAdhGZrInzYbI7bNSIS8Ap4GAFN5neTf6MNw7sa/De44RjPIB7gMfqtO/z/ZAnFuD81lPBLRnKIwdE5O/aRlVtAbZYi0uALT62aXz8B6yFzZHOCvkc67uMW6xZj0eBdmuBCdAOPFKn/Zjvj7whFdxix7xxpDb/qWKTtbgE2Vzb4PvhiLWwOXC8AgwDP5Cf3EFxCev1b6jeDSyzFpggy3yMtZzy/ZIHxnF+G87jLbchqvoy8JS1joT5XER2WYuIg9DG+R60FlDGGJ1gzKeq7UCHtY4U6PCx5p5gzAfcZy0gRYIYwwzJfEutBaRIHhdKXEdI5rvTWkAZ6+wIyXxFyPemuMNaQBzcEOVDfvHBA8AqYJ6h3n9E5P0G78031JU2t9RrVNWtwI2GusaBE8B3TSYBpol65VsH3I+t8cDth9KItshHyT83N2i3fvJtHs4n66J8OKr5VhkHNcW1Ju8VyXyNLgLXZnWU5Ijkl5ByPutffZrkZSq0KVHNd8JaqKfZ7gJFMt9fDdqtd1+YIpJfoppvP/Aj9r+4ZrfWPC4rmit/Nmi3Tj3GcT7ZH+XDkf7t+n8uw/6VVc4Q9oqWan6r19hkJCCThJTz/WotoIx1doRkvtPWAlJkzFpAHIRkvp+sBaTIz9YC4iAY84nI77i8L3TO+FhzTzDm83xrLaCMMTqhmW/QWkAZY3QiDbXMRNWuB6tIb4L/UxG5VN0gIkdV9RfCHXIZE5Gj1Q1+J6vNczzebLmMG0A+GGXhwEzEdeXrxZkvzZUlKxq0f5aihrQZmEU/JMF83HmOZfOluMxnsfCgy19xa/kaVwUoNM762Kbx8XcZaInlfOc552ulTseLyATwgbW4BPjQx1ZNl++HtInlkdu4zGe18KBbVestL/oKt7NTKBwGvqxu8HF3G+mJZZeLuMw3jCvtlHaRu3m4+mj/wSfD/bjaZ3lnAuivk+CvJ/3FvVdx5zmWOf6gdiyoRVWfBV601vE/eU9EPrIWkQR5zvmi8AnZXokzE8PAx9YikiLoKx9Mj4PtIn/Pup4G+mrHMkMiePNBWYcjq4R+2wXAn8QduOo+Wecc8EroxoOCmA/Al5PahqtvllVGgW1FKH0FBTIfgC+o14er8Jg19uJyvEIU/YOC5Hz1UNUnge3YP/FV1tstIr4S5au4chAWlJXGi46qbgCeA1am9JUngT0iMmQduyWl+Ty+alEPbjf7tcSfD0/ipqYGgBERycsG3olRmq8OqroY2IibN+4EWuZ4qAncJPwQMCgi561jyxKl+WZAVVuBNcBq3CzJEmAhbneAqR0CrvjXRdy6uzFccZZDIpL2Yovc8C+dLFlCFYPlewAAAABJRU5ErkJggg==) no-repeat center;
+        display: block;
+        margin: 5% auto;
+        position: relative;
+        width: 159px;
+        height: 59px;
+    }
+
+    @-webkit-keyframes pulse {
+        0% {
+            opacity: 0;
+            background-position: center top;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+
+        10% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            -moz-background-size: 20% auto;
+            -o-background-size: 20% auto;
+            -webkit-background-size: 20% auto;
+            background-size: 20% auto;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+            background-position: center bottom;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+    }
+
+    @-moz-keyframes pulse {
+        0% {
+            opacity: 0;
+            background-position: center top;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+
+        10% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            -moz-background-size: 20% auto;
+            -o-background-size: 20% auto;
+            -webkit-background-size: 20% auto;
+            background-size: 20% auto;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+            background-position: center bottom;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+    }
+
+    @-ms-keyframes pulse {
+        0% {
+            opacity: 0;
+            background-position: center top;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+
+        10% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            -moz-background-size: 20% auto;
+            -o-background-size: 20% auto;
+            -webkit-background-size: 20% auto;
+            background-size: 20% auto;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+            background-position: center bottom;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 0;
+            background-position: center top;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+
+        10% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+            -moz-background-size: 20% auto;
+            -o-background-size: 20% auto;
+            -webkit-background-size: 20% auto;
+            background-size: 20% auto;
+        }
+
+        90% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 0;
+            background-position: center bottom;
+            -moz-background-size: 0 auto;
+            -o-background-size: 0 auto;
+            -webkit-background-size: 0 auto;
+            background-size: 0 auto;
+        }
+    }
+
+    .scroll-down a {
+        display: block;
+        opacity: 0;
+        -moz-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        line-height: 0;
+        font-size: 0;
+        color: transparent;
+        margin-left: auto;
+        margin-right: auto;
+        -moz-background-size: 0 auto;
+        -o-background-size: 0 auto;
+        -webkit-background-size: 0 auto;
+        background-size: 0 auto;
+        -webkit-animation: pulse 1.5s 0s infinite normal ease forwards;
+        -moz-animation: pulse 1.5s 0s infinite normal ease forwards;
+        -o-animation: pulse 1.5s 0s infinite normal ease forwards;
+        animation: pulse 1.5s 0s infinite normal ease forwards;
+        background-image: url(images/arrow-down.svg);
+        background-repeat: no-repeat;
+        s
+    }
+
+    .scroll-down a:before,
+    .scroll-down a:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMzAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiMwMTM0NmIiIGQ9Ik0yMS44NSw3LjE2YzAsMC4zMDktMC4xMTgsMC42MTctMC4zNTMsMC44NTNsLTUuNjgxLDUuNjhjLTAuNDcxLDAuNDcxLTEuMjMzLDAuNDcxLTEuNzA0LDBsLTUuNjgxLTUuNjgNCgkJYy0wLjQ3LTAuNDcxLTAuNDctMS4yMzMsMC0xLjcwNGMwLjQ3MS0wLjQ3LDEuMjM0LTAuNDcsMS43MDQsMGw0LjgyOCw0LjgyOGw0LjgyOC00LjgyOGMwLjQ3Mi0wLjQ3LDEuMjM0LTAuNDcsMS43MDQsMA0KCQlDMjEuNzMxLDYuNTQzLDIxLjg1LDYuODUyLDIxLjg1LDcuMTZ6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==) no-repeat center top;
+        -moz-background-size: 100% auto;
+        -o-background-size: 100% auto;
+        -webkit-background-size: 100% auto;
+        background-size: 100% auto;
+    }
+
+    .scroll-down a:before {
+        -webkit-animation: pulse 1.5s 0.25s infinite normal ease forwards;
+        -moz-animation: pulse 1.5s 0.25s infinite normal ease forwards;
+        -o-animation: pulse 1.5s 0.25s infinite normal ease forwards;
+        animation: pulse 1.5s 0.25s infinite normal ease forwards;
+    }
+
+    .scroll-down a:after {
+        -webkit-animation: pulse 1.5s 0.5s infinite normal ease forwards;
+        -moz-animation: pulse 1.5s 0.5s infinite normal ease forwards;
+        -o-animation: pulse 1.5s 0.5s infinite normal ease forwards;
+        animation: pulse 1.5s 0.5s infinite normal ease forwards;
+    }
+</style>
 
 <body>
 
@@ -916,6 +1154,12 @@
                                 <a href="{{ route('changeLanguage', 'ch') }}">
                                     <i class="fa-solid fa-flag"></i>
                                     China
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('changeLanguage', 'my') }}">
+                                    <i class="fa-solid fa-flag"></i>
+                                    Myanmar
                                 </a>
                             </li>
 
@@ -988,6 +1232,7 @@
                     </li>
                 </ul>
 
+
                 <div class="center" style="width: 40% !important">
 
                     <marquee>
@@ -1009,20 +1254,22 @@
 
 
     <div class="section section-header">
-        <div class="parallax filter filter-color-red" style="height: 600px">
+        {{-- <div class="parallax filter filter-color-red" style="height: 600px"> --}}
+        <div class="parallax" style="height: 600px">
+
+            {{-- <div class="image" --}}
             <div class="image"
                 style="background-image: url('https://i.ebayimg.com/images/g/9-QAAOSwOLdksDxb/s-l1200.webp'); ">
             </div>
 
             <div class="container">
                 <div style="margin-top: 100px;" id="girl-language">
-                    <div class="dropdown" style="color: white;">
-                        <a href="#gaia" class="dropdown-toggle" data-toggle="dropdown"
-                            style="color: white;font-size: 17px;">
+                    <div class="dropdown">
+                        <a href="#gaia" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa-solid fa-language"></i> {{ __('language') }}
                         </a>
 
-                        <ul class="dropdown-menu dropdown-danger">
+                        <ul class="dropdown-menu dropdown-custom">
                             <li>
                                 <a href="{{ route('changeLanguage', 'en') }}">
                                     <i class="fa-solid fa-flag-usa"></i>
@@ -1032,7 +1279,7 @@
                             <li>
                                 <a href="{{ route('changeLanguage', 'th') }}">
                                     <i class="fa-solid fa-flag"></i>
-                                    Thiland
+                                    Thailand
                                 </a>
                             </li>
                             <li>
@@ -1041,18 +1288,30 @@
                                     China
                                 </a>
                             </li>
-
-
+                            <li>
+                                <a href="{{ route('changeLanguage', 'my') }}">
+                                    <i class="fa-solid fa-flag"></i>
+                                    Myanmar
+                                </a>
+                            </li>
                         </ul>
                     </div>
+
                 </div>
                 <div class="content">
                     <div class="title-area">
                         {{-- <p>Free Demo</p> --}}
                         @foreach ($texts as $tex)
-                            <h2 style="color: blue;">{{ $tex->text }}</h2>
+                            <h2 style="color: blue">{{ $tex->text }}</h2>
                         @endforeach
                         <div class="separator line-separator">♦</div>
+
+
+                    </div>
+
+                    <div class="spinner scroll-down">
+                        <a class="animate" href="javascript:void(0);" onclick="scrollToBottom()">Scroll to
+                            Bottom</a>
                     </div>
                 </div>
             </div>
@@ -1062,6 +1321,9 @@
 
 
     <div class="section section-our-team-freebie" style="background-color: pink">
+
+
+
         <div class="parallax">
             <div class="image" style="background-image:url('assets/img/header-2.jpeg')">
             </div>
@@ -1105,7 +1367,8 @@
                                     <select class="form-control" id="country" name="country">
                                         <option value="">{{ __('messages.select country') }}</option>
                                         @foreach ($countries as $country)
-                                            <option value="{{ $country->country }}">{{ $country->country }}</option>
+                                            <option value="{{ $country->country }}">{{ $country->country }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -1113,10 +1376,6 @@
 
                         </div>
                     </div>
-
-
-
-
                 </div>
 
                 <div class="d-flex align-items-center justify-content-around flex-wrap" id="girls-container"
@@ -1349,6 +1608,14 @@
             showPage(1);
         }
     });
+</script>
+<script>
+    function scrollToBottom() {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    }
 </script>
 
 

@@ -103,6 +103,12 @@
                         <span class="align-middle">China</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('changeLanguage', 'my') }}" class="dropdown-item">
+                        <i class="fa-solid fa-flag me-2"></i>
+                        <span class="align-middle">Myanmar</span>
+                    </a>
+                </li>
                 {{-- <li>
                     <a class="dropdown-item" href="javascript:void(0);">
                         <i class='bx bx-cog me-2'></i>
