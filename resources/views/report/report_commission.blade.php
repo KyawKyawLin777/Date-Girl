@@ -133,105 +133,118 @@
         @endif
         <div class="col-12 mt-4">
 
-            @if (count($reports) != 0)
 
-                <div class="row">
-                    <div class="col-12 mt-3 mb-3">
-                        <form action="{{ url('girl_search') }}" method="GET">
-                            <div class="row">
-                                <div class="col-12 col-md-4 mt-2">
-                                    <input class="form-control" type="text" name="search" placeholder="Search by name"
-                                        value="{{ request('search') }}">
-                                </div>
+
+            <div class="row">
+                <div class="col-12 mt-3 mb-3">
+                    <form action="{{ url('girl_search') }}" method="GET">
+                        <div class="row">
+                            <div class="col-12 col-md-4 mt-2">
+                                <input class="form-control" type="text" name="search" placeholder="Search by name"
+                                    value="{{ request('search') }}">
                             </div>
-                            <div>
-                                <button class="mt-2 btn btn-primary" type="submit"><i
-                                        class="fa-solid fa-magnifying-glass"></i></button>
-                                <button type="button" class="mt-2 btn btn-primary" onclick="reloadAndClear()">
-                                    {{ __('messages.search clear') }}</button>
+                        </div>
+                        <div>
+                            <button class="mt-2 btn btn-primary" type="submit"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                            <button type="button" class="mt-2 btn btn-primary" onclick="reloadAndClear()">
+                                {{ __('messages.search clear') }}</button>
+                        </div>
+
+                    </form>
+                    <form class="mt-3" action="{{ url('commission_search') }}" method="GET">
+                        <div class="row">
+                            <div class="col-6 col-md-4 mt-2">
+                                <input class="form-control text-dark" type="date" name="start_date"
+                                    placeholder="Start Date" value="{{ request('start_date') }}">
                             </div>
-
-                        </form>
-
-                    </div>
+                            <div class="col-6 col-md-4 mt-2">
+                                <input class="form-control text-dark" type="date" name="end_date" placeholder="End Date"
+                                    value="{{ request('end_date') }}">
+                            </div>
+                        </div>
+                        <div>
+                            <button class="mt-2 btn btn-primary" type="submit"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
                 </div>
-                <div class="container d-flex justify-content-center align-items-center mt-5">
-                    <div class="card shadow col-12">
-                        <h5 class="card-header" style="background-color: rgb(219, 219, 219)">
-                            {{ __('messages.girl commission report') }}</h5>
+            </div>
+            <div class="container d-flex justify-content-center align-items-center mt-5">
+                <div class="card shadow col-12">
+                    <h5 class="card-header" style="background-color: rgb(219, 219, 219)">
+                        {{ __('messages.girl commission report') }}</h5>
 
-                        <div class="card-body">
+                    <div class="card-body">
 
-                            <div class="table-responsive text-nowrap">
-                                <table id="commissionTable" class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">{{ __('messages.no') }}</th>
+                        <div class="table-responsive text-nowrap">
+                            <table id="commissionTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">{{ __('messages.no') }}</th>
 
-                                            <th class="text-center">{{ __('messages.girl name') }}</th>
-                                            <th class="text-center">{{ __('messages.total hour') }}</th>
-                                            <th class="text-center">{{ __('messages.total amount') }}
-                                            </th>
-                                            <th class="text-center">{{ __('messages.commission') }}</th>
-                                            <th class="text-center">{{ __('messages.total amount commission') }}</th>
-                                            <th>{{ __('messages.actions') }}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-border-bottom-0">
+                                        <th class="text-center">{{ __('messages.girl name') }}</th>
+                                        <th class="text-center">{{ __('messages.total hour') }}</th>
+                                        <th class="text-center">{{ __('messages.total amount') }}
+                                        </th>
+                                        <th class="text-center">{{ __('messages.commission') }}</th>
+                                        <th class="text-center">{{ __('messages.total amount commission') }}</th>
+                                        <th>{{ __('messages.actions') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-border-bottom-0">
+                                    @php
+                                        $totalCommissionPrice = 0;
+                                    @endphp
+                                    @foreach ($reports as $key => $report)
                                         @php
-                                            $totalCommissionPrice = 0;
+                                            $totalCommissionPrice +=
+                                                ($report->girl_commission / 100) * $total_price[$report->id];
                                         @endphp
-                                        @foreach ($reports as $key => $report)
-                                            @php
-                                                $totalCommissionPrice +=
-                                                    ($report->girl_commission / 100) * $total_price[$report->id];
-                                            @endphp
-                                            <tr>
-                                                <td class="text-center">{{ $key + 1 }}</td>
-                                                <td class="text-center">{{ $report->name }}</td>
-                                                {{-- @if ($report->time == 'Night' || 'night')
+                                        <tr>
+                                            <td class="text-center">{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $report->name }}</td>
+                                            {{-- @if ($report->time == 'Night' || 'night')
                                                     <td class="text-center">{{ $report->time }}
                                                 @endif hours</td> --}}
-                                                {{-- {{ $report->time ?? 'Night' }} --}}
+                                            {{-- {{ $report->time ?? 'Night' }} --}}
 
-                                                <td class="text-center">{{ $total_time[$report->id] }} hours</td>
-                                                <td class="text-center">{{ $total_price[$report->id] ?? 0 }} THB</td>
-                                                <td class="text-center">{{ $report->girl_commission }} %</td>
-                                                <td class="text-center">
-                                                    {{ ($report->girl_commission / 100) * $total_price[$report->id] }}
-                                                    THB</td>
-                                                <td><a href="{{ url('girl_history', $report->id) }}" class="btn btn-info">
-                                                        {{ __('messages.girl history') }}</a></td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            @if (empty($search))
-                                                <td colspan="2"></td>
-                                                <td class="text-center">{{ __('messages.total') }}</td>
-                                                <td class="text-center">{{ $totalPrice }} THB</td>
-                                                <td class="text-center">{{ $totalCommission }} %</td>
-                                                <td class="text-center">{{ $totalCommissionPrice }} THB</td>
-                                                <td colspan="1"></td>
-                                            @else
-                                                <td colspan="2"></td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center"></td>
-                                                <td class="text-center"></td>
-                                                <td colspan="1"></td>
-                                            @endif
+                                            <td class="text-center">{{ $total_time[$report->id] }} hours</td>
+                                            <td class="text-center">{{ $total_price[$report->id] ?? 0 }} THB</td>
+                                            <td class="text-center">{{ $report->girl_commission }} %</td>
+                                            <td class="text-center">
+                                                {{ ($report->girl_commission / 100) * $total_price[$report->id] }}
+                                                THB</td>
+                                            <td><a href="{{ url('girl_history', $report->id) }}" class="btn btn-info">
+                                                    {{ __('messages.girl history') }}</a></td>
                                         </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        @if (empty($startDate) && empty($endDate) && empty($search))
+                                            <td colspan="2"></td>
+                                            <td class="text-center">{{ __('messages.total') }}</td>
+                                            <td class="text-center">{{ $totalPrice }} THB</td>
+                                            <td class="text-center">{{ $totalCommission }} %</td>
+                                            <td class="text-center">{{ $totalCommissionPrice }} THB</td>
+                                            <td colspan="1"></td>
+                                        @else
+                                            <td colspan="2"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td colspan="1"></td>
+                                        @endif
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>
-            @else
-                <h3 class="text-secondary text-center mt-5">There is no Report Here.</h3>
-            @endif
+            </div>
+
         </div>
     </div>
     <script>

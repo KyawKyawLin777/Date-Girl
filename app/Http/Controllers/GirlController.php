@@ -322,6 +322,34 @@ class GirlController extends Controller
     );
   }
 
+  public function commissionDateSearch(Request $request)
+  {
+
+    $startDate = $request->input('start_date');
+    $endDate = $request->input('end_date');
+
+    $reports = Girl::latest()->get();
+    $total_time = [];
+    $total_price = [];
+    foreach ($reports as $report) {
+      $query = Order::where('girl_id', $report->id)
+        ->where('state', 'Accept');
+      if ($startDate && $endDate) {
+        $query->whereBetween('created_at', [$startDate, $endDate]);
+      }
+
+      $total_time[$report->id] = $query->sum('time');
+      $total_price[$report->id] = $query->sum('price');
+    }
+    $totalPrice = Order::sum('price');
+    $totalCommission = Girl::sum('girl_commission');
+    return view(
+      'report.report_commission',
+      compact('reports', 'total_time', 'total_price', 'totalPrice', 'totalCommission', 'startDate', 'endDate')
+    );
+  }
+
+
   public function girlHistory($id)
   {
     $girl = Girl::find($id);

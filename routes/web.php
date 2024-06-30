@@ -56,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/girl_history/{id}', [GirlController::class, 'girlHistory']);
   Route::get('/girl_history_search/{girl_id}', [GirlController::class, 'gitlHistorySearch']);
   Route::get('/girl_search', [GirlController::class, 'nameSearch']);
+  Route::get('commission_search', [GirlController::class, 'commissionDateSearch']);
+
 
   // Country
   Route::get('/countryPage', [CategoryController::class, 'countryPage'])->name('country#countryPage');

@@ -3,8 +3,8 @@
 return [
   'name' => 'Date Girl',
   'manifest' => [
-    'name' => env('APP_NAME', 'Date Girl'),
-    'short_name' => 'Date Girl',
+    'name' => env('APP_NAME', 'DateGirl'),
+    'short_name' => 'DateGirl',
     'start_url' => '/',
     'background_color' => '#ffffff',
     'theme_color' => '#000000',

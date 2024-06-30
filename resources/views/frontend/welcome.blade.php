@@ -9,7 +9,7 @@
     <title>Date Girl</title>
     @laravelPWA
     <!-- Favicon-->
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/img/avatars/pink_logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/img/avatars/pink_logo.png') }}">
     <!-- Bootstrap Icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
